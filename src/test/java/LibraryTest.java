@@ -15,7 +15,7 @@ public class LibraryTest {
     public void before() {
         lovelyLibrary = new Library(100);
         funnyBook = new Book("Teehee", "Author McGhee", "Fiction");
-        suspenseBook = new Book("Woah", "Middlename Danger", "Nonfiction");
+        suspenseBook = new Book("Woah", "Rocket McDanger", "Nonfiction");
         thrillerBook = new Book("Into The Woods", "McMuffin", "Thriller");
         relaxingBook = new Book("Super Relaxing", "Lastname Relax", "AllGood");
     }
