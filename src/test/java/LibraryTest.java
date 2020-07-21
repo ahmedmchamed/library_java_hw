@@ -20,13 +20,13 @@ public class LibraryTest {
 
     @Test
     public void stockIsEmpty() {
-        assertEquals(0, lovelyLibrary.getNumberOfBooks());
+        assertEquals(0, lovelyLibrary.getStockCount());
     }
 
     @Test
     public void addBookToStock() {
         lovelyLibrary.addBookToStock(funnyBook);
-        assertEquals(1, lovelyLibrary.getNumberOfBooks());
+        assertEquals(1, lovelyLibrary.getStockCount());
     }
 
     @Test
@@ -35,7 +35,15 @@ public class LibraryTest {
         localLibrary.addBookToStock(funnyBook);
         localLibrary.addBookToStock(suspenseBook);
         localLibrary.addBookToStock(thrillerBook);
-        assertEquals(1, localLibrary.getNumberOfBooks());
+        assertEquals(1, localLibrary.getStockCount());
+    }
+
+    @Test
+    public void canLoanBook() {
+        lovelyLibrary.addBookToStock(funnyBook);
+        lovelyLibrary.addBookToStock(suspenseBook);
+        lovelyLibrary.removeBookForLoan(funnyBook);
+        assertEquals("Woah", lovelyLibrary.getBooksStockObject().get(0).getTitle());
     }
 
 }
