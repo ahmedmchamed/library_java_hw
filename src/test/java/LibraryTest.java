@@ -29,4 +29,13 @@ public class LibraryTest {
         assertEquals(1, lovelyLibrary.getNumberOfBooks());
     }
 
+    @Test
+    public void cannotAddBooksIfStockAtCapacity() {
+        Library localLibrary = new Library(1);
+        localLibrary.addBookToStock(funnyBook);
+        localLibrary.addBookToStock(suspenseBook);
+        localLibrary.addBookToStock(thrillerBook);
+        assertEquals(1, localLibrary.getNumberOfBooks());
+    }
+
 }
