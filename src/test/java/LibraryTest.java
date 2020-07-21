@@ -9,6 +9,7 @@ public class LibraryTest {
     private Book funnyBook;
     private Book suspenseBook;
     private Book thrillerBook;
+    private Book relaxingBook;
 
     @Before
     public void before() {
@@ -16,6 +17,7 @@ public class LibraryTest {
         funnyBook = new Book("Teehee", "Author McGhee", "Fiction");
         suspenseBook = new Book("Woah", "Middlename Danger", "Nonfiction");
         thrillerBook = new Book("Into The Woods", "McMuffin", "Thriller");
+        relaxingBook = new Book("Super Relaxing", "Lastname Relax", "AllGood");
     }
 
     @Test
@@ -44,6 +46,26 @@ public class LibraryTest {
         lovelyLibrary.addBookToStock(suspenseBook);
         lovelyLibrary.removeBookForLoan(funnyBook);
         assertEquals("Woah", lovelyLibrary.getBooksStockObject().get(0).getTitle());
+        assertEquals(1, lovelyLibrary.getStockCount());
     }
 
+    @Test
+    public void canCountBookGenres() {
+        lovelyLibrary.addBookToStock(funnyBook);
+        lovelyLibrary.addBookToStock(funnyBook);
+        lovelyLibrary.addBookToStock(funnyBook);
+        lovelyLibrary.addBookToStock(funnyBook);
+
+        lovelyLibrary.addBookToStock(suspenseBook);
+        lovelyLibrary.addBookToStock(suspenseBook);
+        lovelyLibrary.addBookToStock(suspenseBook);
+
+        lovelyLibrary.addBookToStock(thrillerBook);
+        lovelyLibrary.addBookToStock(thrillerBook);
+
+        lovelyLibrary.addBookToStock(relaxingBook);
+
+        assertEquals(10, lovelyLibrary.getStockCount());
+        assertEquals(3, lovelyLibrary.getGenreCount(suspenseBook));
+    }
 }
