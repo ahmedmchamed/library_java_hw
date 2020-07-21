@@ -47,6 +47,7 @@ public class LibraryTest {
         lovelyLibrary.removeBookForLoan(funnyBook);
         assertEquals("Woah", lovelyLibrary.getBooksStockObject().get(0).getTitle());
         assertEquals(1, lovelyLibrary.getStockCount());
+        //check if function returns null when book isn't in stock
         assertEquals(null, lovelyLibrary.removeBookForLoan(relaxingBook));
     }
 
