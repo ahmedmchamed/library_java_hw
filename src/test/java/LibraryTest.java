@@ -47,6 +47,7 @@ public class LibraryTest {
         lovelyLibrary.removeBookForLoan(funnyBook);
         assertEquals("Woah", lovelyLibrary.getBooksStockObject().get(0).getTitle());
         assertEquals(1, lovelyLibrary.getStockCount());
+        assertEquals(null, lovelyLibrary.removeBookForLoan(relaxingBook));
     }
 
     @Test
